@@ -45,7 +45,7 @@ class Ship {
         }
     }
     
-    void update() {
+    void update(Ship s) {
         // Move the ship
         x += vx;
         y += vy;
@@ -55,12 +55,12 @@ class Ship {
         while (x > SpaceDodger.windowWidth) {
             x -= SpaceDodger.windowWidth;
         }
-        while (y < 0) {
-            y += SpaceDodger.windowHeight;
-        }
-        while (y > SpaceDodger.windowHeight) {
-            y -= SpaceDodger.windowHeight;
-        }
+        //while (y < 0) {
+            //y += SpaceDodger.windowHeight;
+        //}
+        //while (y > SpaceDodger.windowHeight) {
+            //y -= SpaceDodger.windowHeight;
+        //}
             
         // Make the ship slow down over time
         vx *= damping;

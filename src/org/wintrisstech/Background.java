@@ -5,7 +5,7 @@ import java.awt.Graphics2D;
 
 class Background {
     
-    private Color spaceColor = new Color(60, 60, 60);
+    private Color spaceColor = new Color(0, 0, 0);
 
     void paint(Graphics2D g2) {
         g2.setColor(spaceColor);

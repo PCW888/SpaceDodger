@@ -2,6 +2,7 @@ package org.wintrisstech;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.event.ActionEvent;
 import java.util.Random;
 
 class Alien {
@@ -21,7 +22,12 @@ class Alien {
         }
     }
 
-    public void update(Ship ship) {
-        // Do nothing
+    public void update(Ship ship) 
+    {
+       //Do nothing
     }
+    
+   
+    
+    
 }
