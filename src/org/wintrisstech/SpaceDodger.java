@@ -47,21 +47,55 @@ public class SpaceDodger extends JComponent implements ActionListener, MouseList
         startWave(1);
     }
 
-    public void startWave(int nextWave) {
+    public void startWave(int nextWave) 
+    {
         gameOver = false;
         gameWon = false;
         wave = nextWave;
         waveMessageCounter = 30;
 
-        if (wave == 1) {
-            aliens = new Alien[10];
-            for (int i = 0; i < aliens.length; i++) {
+        if (wave == 1) 
+        {
+            ship.y = 720;
+            aliens = new Alien[25];
+            for (int i = 0; i < aliens.length; i++) 
+            {
                 aliens[i] = new PlainAlien();
+                
             }
         }
-        if (wave == 2) {
-            gameWon = true;
+        
+        if (wave == 2) 
+        {
+            ship.y = 720;
+            aliens = new Alien[25];
+            for(int i = 0; i < aliens.length; i++)
+            {
+              aliens[i] = new RedAlien();  
+            }
+        
         }
+        
+        if (wave == 3)
+        {ship.y = 720;
+            aliens = new Alien[25];
+            for(int i = 0; i < aliens.length; i++)
+            {
+              aliens[i] = new Alien3();  
+            }
+        }
+        
+        if (wave == 4)
+             {ship.y = 720;
+            aliens = new Alien[25];
+            for(int i = 0; i < aliens.length; i++)
+            {
+              aliens[i] = new Alien4();  
+            }
+        }
+        
+          if (wave == 5)  
+            gameWon = true;
     }
 
     @Override
@@ -105,7 +139,7 @@ public class SpaceDodger extends JComponent implements ActionListener, MouseList
     @Override
     public void actionPerformed(ActionEvent ae) {
         // Update the ship
-        ship.update();
+        ship.update(ship);
 
         if (gameOver || gameWon) {
             repaint();
@@ -121,7 +155,8 @@ public class SpaceDodger extends JComponent implements ActionListener, MouseList
         
         // Count the visible aliens
         int visibleAliens = 0;
-        for (int i = 0; i < aliens.length; i++) {
+        for (int i = 0; i < aliens.length; i++) 
+        {
             aliens[i].update(ship);
             if (aliens[i].visible) {
                 visibleAliens++;
@@ -129,7 +164,7 @@ public class SpaceDodger extends JComponent implements ActionListener, MouseList
         }
 
         // If there are no more aliens visible, start the next wave
-        if (visibleAliens == 0) {
+        if (ship.y <= 0) {
             startWave(wave + 1);
         }
         
@@ -145,6 +180,8 @@ public class SpaceDodger extends JComponent implements ActionListener, MouseList
                 gameOver = true;
             }
         }
+        
+        
 
         repaint();
     }
